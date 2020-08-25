@@ -33,8 +33,8 @@ Also resolve any coding guideline violations.
 
 Divided the main.cpp file into following:
   
-   -telcolColorCode.h : This header file contains the namespace **TelCoColorCoder** and its functions
+   -telcolColorCode.h : This header file contains the namespace **TelCoColorCoder** and its functions  
    -ColorCodeTests.h : This header file contains the **tests** functions
-   used to verify the functions in namespace
+   used to verify the functions in namespace  
    -main.cpp : This file contains only main function , a function that calls the tests and
    a function that prints the user manual
