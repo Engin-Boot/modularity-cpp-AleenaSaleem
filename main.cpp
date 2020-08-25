@@ -1,24 +1,15 @@
-#include "telcolColorCode.h"
+#include "ColorCodeTests.h"
 
-void testNumberToPair(int pairNumber,
-    TelCoColorCoder::MajorColor expectedMajor,
-    TelCoColorCoder::MinorColor expectedMinor)
-{
-    TelCoColorCoder::ColorPair colorPair =
-        TelCoColorCoder::GetColorFromPairNumber(pairNumber);
-    std::cout << "Got pair " << colorPair.ToString() << std::endl;
-    assert(colorPair.getMajor() == expectedMajor);
-    assert(colorPair.getMinor() == expectedMinor);
-}
-
-void testPairToNumber(
-    TelCoColorCoder::MajorColor major,
-    TelCoColorCoder::MinorColor minor,
-    int expectedPairNumber)
-{
-    int pairNumber = TelCoColorCoder::GetPairNumberFromColor(major, minor);
-    std::cout << "Got pair number " << pairNumber << std::endl;
-    assert(pairNumber == expectedPairNumber);
+void printManual(int numberOfMajorColors, int numberOfMinorColors){
+	int outerLoopCount=0, innerLoopCount=0, pairNumber = 1;
+	for(outerLoopCount=0; outerLoopCount<numberOfMajorColors; outerLoopCount++){
+		for(innerLoopCount=0; innerLoopCount<numberOfMinorColors; innerLoopCount++){ 
+			TelCoColorCoder::ColorPair colorPair =
+        	TelCoColorCoder::GetColorFromPairNumber(pairNumber);
+   			std::cout << pairNumber<< " - " << colorPair.ToString() << std::endl;
+   			pairNumber++;
+		}
+	}
 }
 
 int main() {
@@ -27,6 +18,8 @@ int main() {
 
     testPairToNumber(TelCoColorCoder::BLACK, TelCoColorCoder::ORANGE, 12);
     testPairToNumber(TelCoColorCoder::VIOLET, TelCoColorCoder::SLATE, 25);
-
+	std::cout<<"\n-------End of tests-----\n";
+	std::cout<<"\n\n Printing User Manual\n\n";
+	printManual(TelCoColorCoder::numberOfMajorColors, TelCoColorCoder::numberOfMinorColors);
     return 0;
 }
