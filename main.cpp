@@ -6,27 +6,26 @@ using namespace std;
 string getManual(int numberOfMajorColors, int numberOfMinorColors){
 	int outerLoopCount=0, innerLoopCount=0, pairNumber = 1;
 	vector<string> pairs;
-	std::string allPairs ="";
+	string allPairs ="";
 	for(outerLoopCount=0; outerLoopCount<numberOfMajorColors; outerLoopCount++){
-		for(innerLoopCount=0; innerLoopCount<numberOfMinorColors; innerLoopCount++){ 
-			TelCoColorCoder::ColorPair colorPair =
-        	TelCoColorCoder::GetColorFromPairNumber(pairNumber);
-        	std::ostringstream ss;
+	    for(innerLoopCount=0; innerLoopCount<numberOfMinorColors; innerLoopCount++){ 
+		TelCoColorCoder::ColorPair colorPair = TelCoColorCoder::GetColorFromPairNumber(pairNumber);
+        	ostringstream ss;
         	ss << pairNumber;
         	string temp=ss.str()+" - "+colorPair.ToString();
         	pairs.push_back(temp);
         	pairs.push_back("\n");
-   			pairNumber++;
-		}
+   	        pairNumber++;
+	    }
 	}
 	for (int i = 0; i < pairs.size(); i++) {
-        allPairs += pairs[i];
+            allPairs += pairs[i];
 	}
 	return allPairs;
 }
 
 void testCall(){
-	testNumberToPair(4, TelCoColorCoder::WHITE, TelCoColorCoder::BROWN);
+    testNumberToPair(4, TelCoColorCoder::WHITE, TelCoColorCoder::BROWN);
     testNumberToPair(5, TelCoColorCoder::WHITE, TelCoColorCoder::SLATE);
 
     testPairToNumber(TelCoColorCoder::BLACK, TelCoColorCoder::ORANGE, 12);
@@ -35,8 +34,8 @@ void testCall(){
 
 int main() {
     testCall();
-	cout<<"\n-------End of tests-----\n";
-	cout<<"\n\n Printing User Manual\n\n";
-	cout<<getManual(TelCoColorCoder::numberOfMajorColors, TelCoColorCoder::numberOfMinorColors);
+    cout<<"\n-------End of tests-----\n";
+    cout<<"\n\n Printing User Manual\n\n";
+    cout<<getManual(TelCoColorCoder::numberOfMajorColors, TelCoColorCoder::numberOfMinorColors);
     return 0;
 }
