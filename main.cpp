@@ -15,11 +15,9 @@ string getManual(int numberOfMajorColors, int numberOfMinorColors){
         	string temp=ss.str()+" - "+colorPair.ToString();
         	pairs.push_back(temp);
         	pairs.push_back("\n");
+		    allPairs += pairs[i];
    	        pairNumber++;
 	    }
-	}
-	for (int i = 0; i < pairs.size(); i++) {
-            allPairs += pairs[i];
 	}
 	return allPairs;
 }
