@@ -5,7 +5,6 @@ using namespace std;
 
 string getManual(int numberOfMajorColors, int numberOfMinorColors){
 	int outerLoopCount=0, innerLoopCount=0, pairNumber = 1;
-	vector<string> pairs;
 	string allPairs ="";
 	for(outerLoopCount=0; outerLoopCount<numberOfMajorColors; outerLoopCount++){
 	    for(innerLoopCount=0; innerLoopCount<numberOfMinorColors; innerLoopCount++){ 
@@ -13,9 +12,8 @@ string getManual(int numberOfMajorColors, int numberOfMinorColors){
         	ostringstream ss;
         	ss << pairNumber;
         	string temp=ss.str()+" - "+colorPair.ToString();
-        	pairs.push_back(temp);
-        	pairs.push_back("\n");
-		    allPairs += pairs[i];
+        	temp += "\n";
+		allPairs += temp;
    	        pairNumber++;
 	    }
 	}
